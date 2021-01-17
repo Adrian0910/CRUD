@@ -62,7 +62,7 @@
     }
 
     function obtenerCliente(id) {
-        const transaction = DB.transaction(['crm'], 'readonly');
+        const transaction = db.transaction(['crm'], 'readonly');
         const objectStore = transaction.objectStore('crm');
 
         const cliente = objectStore.openCursor();
@@ -96,7 +96,7 @@
         };
 
         create.onsuccess = function() {
-            db = abrirConexion.result;
+            db = create.result;
         }
     }
 })();
