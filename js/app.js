@@ -63,7 +63,7 @@
             objectStore.createIndex('empresa', 'empresa', { unique: false });
             objectStore.createIndex('id', 'id', { unique: true });
 
-            console.log('DB Lista y Creada');
+            console.log('DB Lista y Creada...');
         }
     }
 
@@ -77,6 +77,7 @@
         };
 
         create.onsuccess = function() {
+
             db = create.result;
 
             const objectStore = db.transaction('crm').objectStore('crm');
