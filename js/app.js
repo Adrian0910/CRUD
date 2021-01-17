@@ -1,6 +1,6 @@
 (function(){
 
-    
+
     const listadoClientes = document.querySelector('#listado-clientes');
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -77,7 +77,7 @@
         };
 
         create.onsuccess = function() {
-            db = abrirConexion.result;
+            db = create.result;
 
             const objectStore = db.transaction('crm').objectStore('crm');
 
@@ -87,8 +87,8 @@
                 if(cursor) {
                     const { nombre, empresa, email, telefono, id } = cursor.value;
 
-                   
-                    listadoClientes.innerHTML += ` 
+
+                    listadoClientes.innerHTML += `
                         <tr>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <p class="text-sm leading-5 font-medium text-gray-700 text-lg  font-bold"> ${nombre} </p>
@@ -97,7 +97,7 @@
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 ">
                                 <p class="text-gray-700">${telefono}</p>
                             </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200  leading-5 text-gray-700">    
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200  leading-5 text-gray-700">
                                 <p class="text-gray-600">${empresa}</p>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5">
